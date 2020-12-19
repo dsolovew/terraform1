@@ -35,7 +35,7 @@ provider "aws" {
  resource "aws_instance" "nginx" {
    ami = "ami-0dd9f0e7df0f0a138"
    instance_type = "t3.micro"
-   
+   count = 0
    tags = {
      Name = "Nginx"
      Environment = "Test"
