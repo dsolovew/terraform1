@@ -35,7 +35,7 @@ provider "aws" {
  resource "aws_instance" "nginx" {
    ami = "ami-0dd9f0e7df0f0a138"
    instance_type = "t3.micro"
-   security_groups = [ "aws_security_group.web_ssh" ]
+   vpc_security_group_ids = "aws_security_group.web_ssh.id"
 
    tags = {
      Name = "Nginx"
