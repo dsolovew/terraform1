@@ -51,9 +51,3 @@ resource "aws_key_pair" "ssh-key" {
   key_name = "ssh-key"
   public_key = file("~/.ssh/id_rsa.pub")
 }
-
-
-#output "instance_ip" {
- # description = "The public ip for ssh access"
- # value = [aws_instance.nginx.public_ip]
-#}
