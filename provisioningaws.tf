@@ -46,14 +46,20 @@ sudo apt install nginx -y
      Name = "Nginx"
      Environment = "Test"
    }*/
-   provisioner "remote-exec" {
-     inline = [
-      "sudo apt update",
-      "sudo apt install nginx -y"
-     ]
+ }
+ resource "null_resource" "execute" {
+   connection {
+     type = "ssh"
+     user = "ubuntu"
+     host = aws_instance.nginx.public_ip
    }
 
-
+   provisioner "remote-exec" {
+     inline = [
+      "sudo apt-get update",
+      "sudo apt-get install nginx -y"
+     ]
+   }
 
  }
 
