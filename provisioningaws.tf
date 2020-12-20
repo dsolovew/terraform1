@@ -2,11 +2,10 @@ provider "aws" {
   region = "us-east-2"
  }
 
- resource "aws_security_group" "web_ssh" {
+ resource "aws_security_group" "webssh" {
    name = "nginx_group"
    description = "Web security group"
-   count = 1
-
+   
    ingress  {
      description = "inbound web"
      cidr_blocks = [ "0.0.0.0/0" ]
@@ -35,7 +34,7 @@ provider "aws" {
  resource "aws_instance" "nginx" {
    ami = "ami-0dd9f0e7df0f0a138"
    instance_type = "t3.micro"
-   vpc_security_group_ids  = [aws_security_group.web_ssh.id]
+   vpc_security_group_ids  = [aws_security_group.webssh.id]
    user_data = file("nginx_provisioning.sh")
    count = 1
    tags = {
