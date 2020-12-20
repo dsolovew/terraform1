@@ -38,7 +38,8 @@ provider "aws" {
    key_name = "ssh-key"
    user_data = <<EOF
 !# /bin/bash
-sudo apt update && sudo apt install nginx -y
+sudo apt update 
+sudo apt install nginx -y
   EOF
    count = 1
    tags = {
