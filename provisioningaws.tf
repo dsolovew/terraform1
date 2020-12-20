@@ -39,6 +39,7 @@ provider "aws" {
    user_data = <<EOF
 !# /bin/bash
 sudo apt update && sudo apt install nginx -y
+sudo service nginx start
   EOF
    count = 1
    tags = {
