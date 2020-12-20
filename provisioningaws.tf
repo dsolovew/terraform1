@@ -46,8 +46,7 @@ sudo apt install nginx -y
      Name = "Nginx"
      Environment = "Test"
    }*/
- }
- resource "null_resource" "execute" {
+
    connection {
      type = "ssh"
      user = "ubuntu"
@@ -60,8 +59,11 @@ sudo apt install nginx -y
       "sudo apt-get install nginx -y"
      ]
    }
-
  }
+ 
+
+
+
 
 resource "aws_key_pair" "ssh-key" {
   key_name = "ssh-key"
