@@ -32,7 +32,7 @@ provider "aws" {
  }
  
  resource "aws_instance" "nginx" {
-   ami = "ami-0a91cd140a1fc148a"  #"ami-0dd9f0e7df0f0a138"
+   ami = "ami-00ddb0e5626798373"
    instance_type = "t3.micro"
    vpc_security_group_ids  = [aws_security_group.webssh.id]
    key_name = "ssh-key"
