@@ -10,8 +10,8 @@ provider "aws" {
      description = "inbound web"
      cidr_blocks = [ "0.0.0.0/0" ]
      protocol = "tcp"
-     from_port = 80
-     to_port = 80
+     from_port = 0
+     to_port = 0
    } 
    
    ingress  {
