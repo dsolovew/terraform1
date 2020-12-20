@@ -50,7 +50,7 @@ resource "aws_key_pair" "ssh-key" {
 }
 
 data "template_file" "user_data" {
-template = "${file("nginx.sh")}"
+template = file("nginx.sh")"
 }
 
 
