@@ -36,7 +36,7 @@ provider "aws" {
    instance_type = "t3.micro"
    vpc_security_group_ids  = [aws_security_group.webssh.id]
    key_name = "ssh-key"
-   user_data = <<EOF
+   /*user_data = <<EOF
 !# /bin/bash
 sudo apt update 
 sudo apt install nginx -y
@@ -45,7 +45,16 @@ sudo apt install nginx -y
    tags = {
      Name = "Nginx"
      Environment = "Test"
+   }*/
+   provisioner "remote-exec" {
+     inline = [
+       "sudo apt update" 
+       "sudo apt install nginx -y"
+     ]
    }
+
+
+
  }
 
 resource "aws_key_pair" "ssh-key" {
