@@ -39,7 +39,6 @@ provider "aws" {
    user_data = <<EOF
 !# /bin/bash
 sudo apt update && sudo apt install nginx -y
-sudo service nginx start
   EOF
    count = 1
    tags = {
@@ -50,5 +49,5 @@ sudo service nginx start
 
 resource "aws_key_pair" "ssh-key" {
   key_name = "ssh-key"
-  public_key = file("~/.ssh/id_rsa.pub")
+  public_key = file("~/.ssh/id_rsa.pem")
 }
