@@ -47,7 +47,7 @@ sudo apt update && sudo apt install nginx -y
    }
  }
 
-  resource "aws_intance" "nginx2" {
+  resource "aws_instance" "nginx2" {
     ami = "ami-09558250a3419e7d0"
     instance_type = "t3.micro"
     vpc_security_group_ids  = [aws_security_group.webssh.id]
