@@ -35,7 +35,10 @@ provider "aws" {
    ami = "ami-0dd9f0e7df0f0a138"
    instance_type = "t3.micro"
    vpc_security_group_ids  = [aws_security_group.webssh.id]
-   user_data = file("nginx_provisioning.sh")
+   user_data = user_data = <<EOF
+    #!/bin/bash
+    sudo apt update && sudo apt install nginx -y
+  EOF
    count = 1
    tags = {
      Name = "Nginx"
