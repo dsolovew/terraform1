@@ -37,8 +37,8 @@ provider "aws" {
    vpc_security_group_ids  = [aws_security_group.webssh.id]
    key_name = "ssh-key"
    user_data = <<EOF
-    #!/bin/bash
-    sudo apt update && sudo apt install nginx -y
+#!/bin/bash
+sudo apt update && sudo apt install nginx -y
   EOF
    count = 1
    tags = {
