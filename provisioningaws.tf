@@ -51,6 +51,8 @@ sudo apt install nginx -y
      type = "ssh"
      user = "ubuntu"
      host = aws_instance.nginx.public_ip
+     private_key = "~/.ssh/id_rsa"
+     timeout = "1m"
    }
 
    provisioner "remote-exec" {
@@ -61,10 +63,6 @@ sudo apt install nginx -y
    }
  }
  
-
-
-
-
 resource "aws_key_pair" "ssh-key" {
   key_name = "ssh-key"
   public_key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC53chIerJq/+q6dXOSPjZyEQZvGTTOeIwzvY4UFQxFVEx6l4RaiO+ibSmTJSCVqPhYnHQCxGiMWkbm9SvLdOHe/GZuB4yIULRqyWNnn2G9iGxOYM2z6MX0SAa5zW1aRdKzxtTE9QetpBAATewvARC4wrxH8gl8oRRpdtDtD32xQMZ1rQ8x2nBD985yL5bvnwIzo+WgsWUpzNEbo/hwgpZPmX+bPRHFB5iaYdluDImQIL3QxmkfAuy63YWcx69FqNoDVa32Blv59+uG740Fqwy2U1bP7bFDBlr8tzjiN3ZORSnmF7yGRPYraF3SPk7nyEZHCBnHqtHYkSeeokQerWbL"
