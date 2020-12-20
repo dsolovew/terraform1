@@ -49,5 +49,5 @@ sudo apt update && sudo apt install nginx -y
 
 resource "aws_key_pair" "ssh-key" {
   key_name = "ssh-key"
-  private_key = file("~/.ssh/id_rsa")
+  public_key = file("~/.ssh/id_rsa")
 }
