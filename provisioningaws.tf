@@ -36,7 +36,7 @@ provider "aws" {
    instance_type = "t3.micro"
    vpc_security_group_ids  = [aws_security_group.webssh.id]
    key_name = "ssh-key"
-   user_data = file("nginx.sh")
+   user_data = [data.template_file.user_data.template]
    count = 1
    tags = {
      Name = "Nginx"
@@ -47,6 +47,10 @@ provider "aws" {
 resource "aws_key_pair" "ssh-key" {
   key_name = "ssh-key"
   public_key = file("~/.ssh/id_rsa.pub")
+}
+
+data "template_file" "user_data" {
+template = "${file("nginx.sh")}"
 }
 
 
