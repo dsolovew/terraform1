@@ -35,7 +35,7 @@ provider "aws" {
    ami = "ami-0dd9f0e7df0f0a138"
    instance_type = "t3.micro"
    vpc_security_group_ids  = [aws_security_group.webssh.id]
-   #key_name = "ssh-key"
+   key_name = "ssh-key"
    user_data = <<EOF
 !# /bin/bash
 sudo apt update && sudo apt install nginx -y
@@ -47,7 +47,7 @@ sudo apt update && sudo apt install nginx -y
    }
  }
 
-#resource "aws_key_pair" "ssh-key" {
-#  key_name = "ssh-key"
-#  public_key = file("~/.ssh/id_rsa")
-#}
+resource "aws_key_pair" "ssh-key" {
+  key_name = "ssh-key"
+  private_key = file("~/.ssh/id_rsa")
+}
