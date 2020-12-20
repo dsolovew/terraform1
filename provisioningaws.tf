@@ -56,14 +56,14 @@ sudo apt update && sudo apt install nginx -y
 !# /bin/bash
 sudo apt update && sudo apt install nginx -y
   EOF
- }
     count = 1
     tags = {
      Name = "nginx2"
      Environment = "Test"
    }
+ }
 
 resource "aws_key_pair" "ssh-key" {
   key_name = "ssh-key"
-  public_key = ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC53chIerJq/+q6dXOSPjZyEQZvGTTOeIwzvY4UFQxFVEx6l4RaiO+ibSmTJSCVqPhYnHQCxGiMWkbm9SvLdOHe/GZuB4yIULRqyWNnn2G9iGxOYM2z6MX0SAa5zW1aRdKzxtTE9QetpBAATewvARC4wrxH8gl8oRRpdtDtD32xQMZ1rQ8x2nBD985yL5bvnwIzo+WgsWUpzNEbo/hwgpZPmX+bPRHFB5iaYdluDImQIL3QxmkfAuy63YWcx69FqNoDVa32Blv59+uG740Fqwy2U1bP7bFDBlr8tzjiN3ZORSnmF7yGRPYraF3SPk7nyEZHCBnHqtHYkSeeokQerWbL
+  public_key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC53chIerJq/+q6dXOSPjZyEQZvGTTOeIwzvY4UFQxFVEx6l4RaiO+ibSmTJSCVqPhYnHQCxGiMWkbm9SvLdOHe/GZuB4yIULRqyWNnn2G9iGxOYM2z6MX0SAa5zW1aRdKzxtTE9QetpBAATewvARC4wrxH8gl8oRRpdtDtD32xQMZ1rQ8x2nBD985yL5bvnwIzo+WgsWUpzNEbo/hwgpZPmX+bPRHFB5iaYdluDImQIL3QxmkfAuy63YWcx69FqNoDVa32Blv59+uG740Fqwy2U1bP7bFDBlr8tzjiN3ZORSnmF7yGRPYraF3SPk7nyEZHCBnHqtHYkSeeokQerWbL"
 }
