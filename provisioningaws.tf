@@ -48,8 +48,8 @@ sudo apt install nginx -y
    }*/
    provisioner "remote-exec" {
      inline = [
-       "sudo apt update" 
-       "sudo apt install nginx -y"
+      "sudo apt update",
+      "sudo apt install nginx -y"
      ]
    }
 
