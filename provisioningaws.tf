@@ -51,14 +51,16 @@ sudo apt install nginx -y
      type = "ssh"
      user = "ubuntu"
      host = aws_instance.nginx.public_ip
-     private_key = "${file(/root/ssh/id_rsa)}"
+     private_key = "${file("/root/ssh/id_rsa")}"
      timeout = "1m"
+
    }
 
    provisioner "remote-exec" {
      inline = [
       "sudo apt-get update",
-      "sudo apt-get install nginx -y"
+      "sudo apt-get install nginx -y",
+      "sudo service nginx start "
      ]
    }
  }
