@@ -55,19 +55,20 @@ sudo apt install nginx -y
      timeout = "1m"
    }
 
-   provisioner "remote-exec" {
-     inline = [
-      "sudo apt-get update",
-      "sudo apt-get install nginx -y",
-      "sudo chmod 777 /var/www/html/index.nginx-debian.html",
-      "sudo service nginx start"
-     ]
-   }
-
    provisioner "file" {
      source = "index.html"
      destination = "/tmp/index.html"
    }
+
+   provisioner "remote-exec" {
+     inline = [
+      "sudo apt-get update",
+      "sudo apt-get install nginx -y",
+      "sudo cp /tmp/index.html /var/www/html/index.html",
+      "sudo service nginx restart"
+     ]
+   }
+
  }
  
 resource "aws_key_pair" "ssh-key" {
