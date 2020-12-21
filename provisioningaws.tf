@@ -66,7 +66,7 @@ sudo apt install nginx -y
 
    provisioner "file" {
      source = "index.html"
-     destination = "/usr/share/nginx/html/index.html"
+     destination = "/tmp/index.html"
    }
  }
  
