@@ -59,7 +59,7 @@ sudo apt install nginx -y
      inline = [
       "sudo apt-get update",
       "sudo apt-get install nginx -y",
-      "sudo chmod a+w /var/www/html/index.nginx-debian.html",
+      "sudo chmod 777 /var/www/html/index.nginx-debian.html",
       "sudo service nginx start"
      ]
    }
