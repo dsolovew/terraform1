@@ -67,8 +67,6 @@ sudo apt install nginx -y
      source = "index.html"
      destination = "/var/www/html"
    }
-
-
  }
  
 resource "aws_key_pair" "ssh-key" {
